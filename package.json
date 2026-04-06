@@ -1,0 +1,14 @@
+{
+  "name": "i-am-not-a-number",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "data": "python3 scripts/convert-data.py"
+  },
+  "devDependencies": {
+    "vite": "^6.4.1"
+  }
+}
