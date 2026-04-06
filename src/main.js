@@ -17,6 +17,9 @@ const loadingFill = document.getElementById('loading-fill');
 const infoModal = document.getElementById('info-modal');
 const modalBody = document.getElementById('modal-body');
 const filterPanel = document.getElementById('filter-panel');
+const searchPanel = document.getElementById('search-panel');
+const searchInput = document.getElementById('search-input');
+const searchCount = document.getElementById('search-count');
 const rangeMin = document.getElementById('range-min');
 const rangeMax = document.getElementById('range-max');
 const rangeMinLabel = document.getElementById('range-min-label');
@@ -383,6 +386,7 @@ function handleResize() {
 document.getElementById('lang-toggle').addEventListener('click', () => {
   toggleLang();
   updateFilterLabels();
+  updateSearchLabels();
   if (currentHovered >= 0 && currentHovered < data.length) {
     const d = data[currentHovered];
     const lang = getLang();
@@ -519,21 +523,7 @@ function updateFilterLabels() {
 }
 
 function applyFilter() {
-  const min = parseInt(rangeMin.value);
-  const max = parseInt(rangeMax.value);
-  let count = 0;
-
-  for (let i = 0; i < data.length; i++) {
-    const age = ageValues[i];
-    const vis = age >= min && age <= max;
-    particles.setVisible(i, vis);
-    if (vis) count++;
-  }
-
-  filterCount.textContent = count.toLocaleString();
-  rangeMinLabel.textContent = min;
-  rangeMaxLabel.textContent = max >= 110 ? '110+' : max;
-  updateRangeFill();
+  if (particles) applyFilters();
 }
 
 rangeMin.addEventListener('input', () => {
@@ -554,6 +544,73 @@ document.getElementById('filter-reset').addEventListener('click', () => {
   rangeMin.value = 0;
   rangeMax.value = 110;
   applyFilter();
+});
+
+// Search panel
+let searchQuery = '';
+
+document.getElementById('search-btn').addEventListener('click', () => {
+  searchPanel.classList.toggle('hidden');
+  if (!searchPanel.classList.contains('hidden')) {
+    searchInput.focus();
+  }
+});
+
+document.getElementById('search-close').addEventListener('click', () => {
+  searchPanel.classList.add('hidden');
+});
+
+function updateSearchLabels() {
+  const label = t('searchShowing');
+  const showingEl = document.getElementById('search-showing');
+  if (getLang() === 'ar') {
+    showingEl.innerHTML = `<strong id="search-count">${searchCount.textContent}</strong> ${label}`;
+  } else {
+    showingEl.innerHTML = `${label} <strong id="search-count">${searchCount.textContent}</strong>`;
+  }
+}
+
+function applyFilters() {
+  const min = parseInt(rangeMin.value);
+  const max = parseInt(rangeMax.value);
+  const query = searchQuery.toLowerCase();
+  let count = 0;
+
+  for (let i = 0; i < data.length; i++) {
+    const age = ageValues[i];
+    let vis = age >= min && age <= max;
+
+    if (vis && query) {
+      const d = data[i];
+      vis = (d.n && d.n.toLowerCase().includes(query)) ||
+            (d.a && d.a.includes(searchQuery));
+    }
+
+    particles.setVisible(i, vis);
+    if (vis) count++;
+  }
+
+  const countStr = count.toLocaleString();
+  filterCount.textContent = countStr;
+  searchCount.textContent = countStr;
+  rangeMinLabel.textContent = min;
+  rangeMaxLabel.textContent = max >= 110 ? '110+' : max;
+  updateRangeFill();
+}
+
+let searchDebounce = null;
+searchInput.addEventListener('input', () => {
+  clearTimeout(searchDebounce);
+  searchDebounce = setTimeout(() => {
+    searchQuery = searchInput.value.trim();
+    if (particles) applyFilters();
+  }, 200);
+});
+
+document.getElementById('search-reset').addEventListener('click', () => {
+  searchInput.value = '';
+  searchQuery = '';
+  if (particles) applyFilters();
 });
 
 window.addEventListener('resize', handleResize);

@@ -23,8 +23,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Kufi+Arabic:wght@300;400;600&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/assets/index-BpE3MMFe.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-xEnrDdOs.css">
+  <script type="module" crossorigin src="/assets/index-DI5z4R-8.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BCg5OBbs.css">
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXNVYQYGWT"></script>
@@ -47,6 +47,12 @@
   <div id="top-buttons">
     <button id="lang-toggle" aria-label="Toggle language">عربي</button>
     <button id="info-btn" aria-label="Information">i</button>
+    <button id="search-btn" aria-label="Search by name">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </button>
     <button id="filter-btn" aria-label="Filter by age">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M1 3h14M3 8h10M5.5 13h5"/>
@@ -95,6 +101,18 @@
       <span id="filter-showing">Showing: <strong id="filter-count">60,199</strong></span>
     </div>
     <button id="filter-reset">Reset</button>
+  </div>
+
+  <div id="search-panel" class="hidden">
+    <div id="search-header">
+      <span id="search-title">Search by Name</span>
+      <button id="search-close" aria-label="Close search">&times;</button>
+    </div>
+    <input type="text" id="search-input" placeholder="Enter a name / أدخل اسمًا" autocomplete="off" dir="auto">
+    <div id="search-stats">
+      <span id="search-showing">Showing: <strong id="search-count">60,199</strong></span>
+    </div>
+    <button id="search-reset">Reset</button>
   </div>
 
   <div id="info-card" class="hidden">
