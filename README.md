@@ -4,7 +4,7 @@ A visual memorial for the **60,199** Palestinians killed by Israeli forces in Ga
 
 The death toll as of February 2026 has since risen to over **73,188+**. Thousands more remain unidentified.
 
-🔗 **Live site:** [https://bkhmsi.github.io/i-am-not-a-number/](https://bkhmsi.github.io/i-am-not-a-number/)
+🔗 **Live site:** [https://i-am-not-a-number-palestine.github.io/](https://i-am-not-a-number-palestine.github.io/)
 
 ![Screenshot](public/screenshot.png)
 

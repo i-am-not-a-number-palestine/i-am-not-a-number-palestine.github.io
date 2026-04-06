@@ -14,7 +14,6 @@ const translations = {
 <p>The names were translated by <a href='https://iraqbodycount.org/' target="_blank">Iraq Body Count</a>. We are grateful for their work, which they have released as a <a href='https://www.iraqbodycount.org/pal/moh_2025-07-31.xlsx'>public spreadsheet.</a></p>
 <p>We will continue to update this visual as more information becomes available.</p>
 <p>This visualization is inspired by <a href='https://visualizingpalestine.org/gaza-names/en.html' target='_blank'>Remember Their Names</a>.</p>
-<p>Created by <a href="https://bkhmsi.github.io" target="_blank">Badr AlKhamissi</a>.</p>
 `,
   },
   ar: {
@@ -31,8 +30,7 @@ const translations = {
     infoBody: `<p>يعرض هذا العمل المرئي أسماء ٦٠,١٩٩ فلسطينيًّا قتلتهم القوات الإسرائيلية في غزّة من ٧ أكتوبر ٢٠٢٣ إلى ٣١ يوليو ٢٠٢٥. يشمل هذا الرقم فقط أولئك الذين تمكّنت وزارة الصحة في غزّة من التعرّف على أسمائهم وأعمارهم حتى ذلك التاريخ. ارتفع العدد في فبراير ٢٠٢٦ إلى أكثر من ٧٣,١٨٨+. لا يزال آلاف الأشخاص مجهولي الهوية لأن أجسادهم تضرّرت بشكل يتعذّر معه التعرّف عليهم، أو لعدم وجود أسرة على قيد الحياة للتعرّف عليهم، أو لعدم تمكّن وزارة الصحة في غزّة من انتشال جثثهم في ظل الإبادة الجماعية المستمرة.</p>
 <p>تُرجمت الأسماء بواسطة <a href='https://iraqbodycount.org/' target="_blank">Iraq Body Count</a>. نحن ممتنّون لعملهم الذي أتاحوه <a href='https://www.iraqbodycount.org/pal/moh_2025-07-31.xlsx'>كجدول بيانات عام.</a></p>
 <p>سنواصل تحديث هذا العمل المرئي كلّما توفّرت معلومات جديدة.</p>
-<p>هذا التمثيل البصري مستوحى من <a href='https://visualizingpalestine.org/gaza-names/en.html' target='_blank'>تذكروا أسماءهم</a>.</p>
-<p>أنشأه <a href="https://bkhmsi.github.io" target="_blank">بدر الخميسي</a>.</p>`,
+<p>هذا التمثيل البصري مستوحى من <a href='https://visualizingpalestine.org/gaza-names/en.html' target='_blank'>تذكروا أسماءهم</a>.</p>`,
   },
 };
 
